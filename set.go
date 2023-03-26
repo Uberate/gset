@@ -188,9 +188,6 @@ func GetMix[T comparable](sets ...Set[T]) Set[T] {
 	if len(sets) == 1 {
 		return base
 	}
-	if base == nil {
-		return FromArray([]T{})
-	}
 
 	sets = sets[0:]
 

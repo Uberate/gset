@@ -467,6 +467,16 @@ func TestGetMerge(t *testing.T) {
 			},
 			want: FromArray([]T{1, 2, 3, 4, 5}),
 		},
+		{
+			name: "5. test common case 2",
+			args: args{
+				sets: []Set[T]{
+					nil,
+					FromArray([]T{3, 4, 5}),
+				},
+			},
+			want: FromArray([]T{3, 4, 5}),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -489,7 +499,7 @@ func TestFromMapKey(t *testing.T) {
 		want Set[T]
 	}{
 		{name: "1. test common", args: args{ma: map[T]v{1: 1}}, want: FromArray([]T{1})},
-		{name: "1. test nil", args: args{ma: nil}, want: FromArray([]T{})},
+		{name: "2. test nil", args: args{ma: nil}, want: FromArray([]T{})},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -508,8 +518,9 @@ func TestSet_ToArray(t *testing.T) {
 		want []T
 	}{
 		{name: "1. test common", s: FromArray([]T{1, 2, 3}), want: []T{1, 2, 3}},
-		{name: "1. test nil", s: FromArray([]T{}), want: []T{}},
-		{name: "1. test nil", s: FromArray([]T{1, 2, 3, 1}), want: []T{1, 2, 3}},
+		{name: "2. test nil", s: FromArray([]T{}), want: []T{}},
+		{name: "3. test nil", s: FromArray([]T{1, 2, 3, 1}), want: []T{1, 2, 3}},
+		{name: "4. test nil", s: nil, want: []T{}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
