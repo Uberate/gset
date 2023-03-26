@@ -3,7 +3,7 @@
 ## 引入 & 使用
 
 ```bash
-go get -u https://github.com/Uberate/gset
+go get -u github.com/uberate/gset
 ```
 
 ## 样例
