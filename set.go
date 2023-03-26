@@ -134,6 +134,7 @@ func (s Set[T]) IsSubOf(set Set[T]) bool {
 	return true
 }
 
+// GetMix return new set which is the sub set of input and this set.
 func (s Set[T]) GetMix(set Set[T]) Set[T] {
 	if set == nil {
 		return s
@@ -148,6 +149,7 @@ func (s Set[T]) GetMix(set Set[T]) Set[T] {
 	return res
 }
 
+// ToArray return the array of set, all element is unique, and the index of element is not stable.
 func (s Set[T]) ToArray() []T {
 	t := make([]T, len(s), len(s))
 	if s == nil {
@@ -163,6 +165,7 @@ func (s Set[T]) ToArray() []T {
 	return t
 }
 
+// GetMerge return new set, the result is the supper set of inputs.
 func GetMerge[T comparable](sets ...Set[T]) Set[T] {
 	s := FromArray([]T{})
 
@@ -176,6 +179,7 @@ func GetMerge[T comparable](sets ...Set[T]) Set[T] {
 	return s
 }
 
+// GetMix return new set, the result is the mix set of all inputs.
 func GetMix[T comparable](sets ...Set[T]) Set[T] {
 	if len(sets) == 0 {
 		return FromArray([]T{})
